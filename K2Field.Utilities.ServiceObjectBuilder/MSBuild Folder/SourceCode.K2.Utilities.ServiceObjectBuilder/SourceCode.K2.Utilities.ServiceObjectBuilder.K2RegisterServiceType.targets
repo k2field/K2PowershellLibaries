@@ -1,0 +1,7 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <K2TasksLib>$(MSBuildExtensionsPath)\SourceCode.K2.Utilities.ServiceObjectBuilder\K2Field.Utilities.ServiceObjectBuilder.dll</K2TasksLib>
+  </PropertyGroup>
+  <UsingTask AssemblyFile="$(K2TasksLib)"
+      TaskName="K2Field.Utilities.ServiceObjectBuilder.K2RegisterServiceType" />
+</Project>

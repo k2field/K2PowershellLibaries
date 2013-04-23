@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EnvironmentMetaData>
+	<Environments>
+		<Development>
+			<K2Host>k2cluster</K2Host>
+			<K2HostPort>5555</K2HostPort>
+		</Development>
+		<TestHarness>
+			<K2Host>k2cluster</K2Host>
+			<K2HostPort>5555</K2HostPort>
+		</TestHarness>
+		<Staging>
+			<K2Host>staging.k2cluster</K2Host>
+			<K2HostPort>5555</K2HostPort>
+		</Staging>
+		<Live>
+			<K2Host>Live.k2cluster</K2Host>
+			<K2HostPort>5555</K2HostPort>
+		</Live>
+	</Environments>
+	<ServiceTypes>
+		<ServiceType deploy="false" systemName="" guid="" displayName="" description="" className="" assemliesSourcePath="" assembliesTargetPath="" serviceTypeAssemblyName="">
+			<ServiceInstance deploy="false" systemName="" guid="" displayName="" description="" impersonate="true">
+				<Environment name="">
+					<Config />
+				</Environment>
+			</ServiceInstance>
+		</ServiceType>
+		<ServiceType deploy="true" systemName="K2Service.Atlas.Generic" guid="d6a643f2-0518-4df0-95e7-61ce71e2010d" displayName="Generic" description="A way of testing Services with Objects and methods configured by XML to represent LDAP,Active Directory,ED, Tax etc." className="K2Service.Atlas.LDAP.AtlasLDAP" assemliesSourcePath=".\ServiceBrokerAssemblies\Generic\*" assembliesTargetPath="{BlackPearlDir}\ServiceBroker\CustomServiceBrokers\Generic\" serviceTypeAssemblyName="K2Service.Atlas.LDAP.dll">
+			<ServiceInstance deploy="true" systemName="DummyServiceObject" guid="c8b8e878-e934-48cd-9fc1-dc111734d38f" displayName="Dummy Service Object" description="A collection of methods similar to AD" impersonate="true">
+				<Environment name="Development">
+					<Config name="XMLFilePath" value="{BlackPearlDir}\ServiceBroker\CustomServiceBrokers\XML" keyRequired="true" />
+				</Environment>
+			</ServiceInstance>
+		</ServiceType>
+    <ServiceType deploy="true" systemName="K2Service.Atlas.LDAP.AtlasLDAP" guid="d2e7be23-0f00-4ce1-984d-8d1930378e56" displayName="LDAP" description="A way of testing Services with Objects and methods configured by XML to represent LDAP,Active Directory" className="DII.K2Service.LDAP.AtlasLDAP" assemliesSourcePath=".\ServiceBrokerAssemblies\AD\*" assembliesTargetPath="{BlackPearlDir}\ServiceBroker\CustomServiceBrokers\LDAP\" serviceTypeAssemblyName="DII.K2Service.LDAP.dll">
+      <ServiceInstance deploy="true" systemName="DII_LDAP" guid="651c971a-9644-4be1-8fbf-f1f9b0a12572" displayName="LDAP Service objects" description="A collection of methods to assist in AD functions. broken down into three areas (ADUser,ADRole,ADGroup)." impersonate="true">
+        <Environment name="Development">
+          <Config name="XMLFilePath" value="{BlackPearlDir}\ServiceBroker\CustomServiceBrokers\XML\Atlas_AD.xml" keyRequired="true" />
+        </Environment>
+      </ServiceInstance>
+    </ServiceType>
+  </ServiceTypes>
+</EnvironmentMetaData>

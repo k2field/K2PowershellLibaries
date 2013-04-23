@@ -1,0 +1,20 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<Import Condition="" Project="$(MSBuildExtensionsPath)\SourceCode.K2.Utilities.ServiceObjectBuilder\SourceCode.K2.Utilities.ServiceObjectBuilder.K2RegisterServiceType.targets" />
+	<!-- Register Service Type(s) -->
+	<Target Name="K2RegisterServiceType">
+		<K2RegisterServiceType
+			K2Server="$(K2Server)"
+			K2HostServerPort="$(K2HostServerPort)"
+			ServiceTypeGuid="$(ServiceTypeGuid)"
+      ServiceTypeSystemName="$(ServiceTypeSystemName)"
+      ServiceTypeDisplayName="$(ServiceTypeDisplayName)"
+      ServiceTypeDescription="$(ServiceTypeDescription)"
+      ServiceTypeAssemblyPath="$(ServiceTypeAssemblyPath)"
+      ServiceTypeClassName="$(ServiceTypeClassName)"
+		/>
+	</Target>
+</Project>
+
+
+
+

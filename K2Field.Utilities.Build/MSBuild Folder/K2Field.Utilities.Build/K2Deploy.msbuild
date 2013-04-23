@@ -1,0 +1,52 @@
+<Project DefaultTargets="K2Deploy" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	
+	<Import Condition="" Project="K2CustomTarget.Targets" />
+	
+	<Target Name="K2Deploy">		
+		<!--
+			Server=[Name of the K2 Server] 
+			Port=[HostServer Port (i.e. 5555)]
+			Environment=[Dev, QA, Prod, etc]
+			ProjectPath=[Path to the K2 Project file]
+			OutputPath=[temp folder for storing the created K2 Deployment Package]
+		-->
+
+		<!--  Project Example 
+		<K2Deploy 
+			Server="k2server.dev.k2.atlas.tltinternal.com"
+			Port="5555"
+			Environment="IsoDev"
+			ProjectPath="C:\svn\deploy\K2\SmO\PostScanning.SmO.k2proj"
+			OutputPath="C:\svn\deploy\Deployment\k2 blackpearl\msbuild\All" />
+		-->	
+
+		<!-- Current settings -->
+		<K2Deploy 
+			Server="$(Computername)"
+			Port="$(Port)"
+			ProjectPath="$(K2Project)"
+			OutputPath="$(OutputPath)" />
+
+
+
+
+		<!-- You can also use properties like this if u want to pass them in	
+		<K2Deploy
+			Server="$(Computername)"
+			Port="$(Port)"
+			Environment="$(Environment)"
+			ProjectPath="$(K2Project)\K2WorkflowProject1.k2proj"
+			OutputPath="C:\svn\deploy\Deployment\k2 blackpearl\msbuild\All" />
+						 
+	-->
+		
+
+	</Target>
+
+	
+	
+</Project>
+
+
+
+

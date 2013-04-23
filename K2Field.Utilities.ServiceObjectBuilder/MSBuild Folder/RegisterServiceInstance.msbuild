@@ -1,0 +1,51 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	
+	<Import Condition="" Project="$(MSBuildExtensionsPath)\SourceCode.K2.Utilities.ServiceObjectBuilder\SourceCode.K2.Utilities.ServiceObjectBuilder.K2RegisterServiceInstance.targets" />
+
+	<!-- Register Service Instance(s) -->
+	<Target Name="K2RegisterServiceInstance">
+<!-- Sample Entry
+		<K2RegisterServiceInstance
+			ConfigImpersonate="false" 
+			ConfigKeyNames="DBConnection"
+			ConfigKeyValues="Data Source=dendev.world;Persist Security Info=True;User ID=lstagoll;Password=lstagoll2;Unicode=True"
+			ConfigKeysRequired="true"
+			ConfigKeyDelimiter="|"
+			K2Server="192.168.0.120"
+			K2HostServerPort="5555"
+			ServiceTypeGuid="4311bb70-0cb8-42b1-b942-efa2fbf8e18f"
+			ServiceInstanceGuid="41081d67-7af8-4200-829b-bc2c997540b7"
+            		ServiceInstanceSystemName="SimpleK2ServiceSysName"
+            		ServiceInstanceDisplayName="SimpleK2ServiceTestDisplayName"
+            		ServiceInstanceDescription="SimpleK2 Service TYpe Description" 
+		/>
+    
+			ConfigImpersonate="$(ConfigImpersonate)" 
+			ConfigKeyNames="$(ConfigKeyNames)"
+			ConfigKeyValues="$(ConfigKeyValues)"
+			ConfigKeysRequired="$(ConfigKeysRequired)"
+			ConfigKeyDelimiter="$(ConfigKeyDelimiter)"    
+-->
+	<K2RegisterServiceInstance     
+			ConfigImpersonate="$(ConfigImpersonate)"
+			ConfigKeyNames="$(ConfigKeyNames)"
+			ConfigKeyValues="$(ConfigKeyValues)"
+			ConfigKeysRequired="$(ConfigKeysRequired)"
+			ConfigKeyDelimiter="$(ConfigKeyDelimiter)"            
+			K2Server="$(K2Server)"
+			K2HostServerPort="$(K2HostServerPort)"
+			ServiceTypeGuid="$(ServiceTypeGuid)"
+			ServiceInstanceGuid="$(ServiceInstanceGuid)"
+      ServiceInstanceSystemName="$(ServiceInstanceSystemName)"
+      ServiceInstanceDisplayName="$(ServiceInstanceDisplayName)"
+      ServiceInstanceDescription="$(ServiceInstanceDescription)" 
+		/>
+	</Target>
+
+	
+	
+</Project>
+
+
+
+

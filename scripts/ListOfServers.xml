@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ListOfServers>
+  <Environments>
+    <IsoDev>
+      <K2Host>IsoDev</K2Host>
+      <K2HostPort>5555</K2HostPort>
+    </IsoDev>
+    <SharedDev>
+      <K2Host>k2server.dev.k2.atlas.tltinternal.com</K2Host>
+      <K2HostPort>5555</K2HostPort>
+    </SharedDev>
+    <Test>
+      <K2Host>k2server.test.k2.atlas.tltinternal.com</K2Host>
+      <K2HostPort>5555</K2HostPort>
+    </Test>
+    <Live>
+      <K2Host>k2server.k2.atlas.tltinternal.com</K2Host>
+      <K2HostPort>5555</K2HostPort>
+    </Live>
+  </Environments>
+ </ListOfServers>

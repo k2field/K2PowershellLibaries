@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EnvironmentMetaData>
+	<Environments>
+		<Development>
+			<K2Host>k2cluster</K2Host>
+			<K2HostPort>5555</K2HostPort>
+		</Development>
+		<TestHarness>
+			<K2Host>k2cluster</K2Host>
+			<K2HostPort>5555</K2HostPort>
+		</TestHarness>
+		<Staging>
+			<K2Host>staging.k2cluster</K2Host>
+			<K2HostPort>5555</K2HostPort>
+		</Staging>
+		<Live>
+			<K2Host>Live.k2cluster</K2Host>
+			<K2HostPort>5555</K2HostPort>
+		</Live>
+	</Environments>
+	<ServiceTypes>
+		<ServiceType deploy="false" systemName="" guid="" displayName="" description="" className="" assemliesSourcePath="" assembliesTargetPath="" serviceTypeAssemblyName="">
+			<ServiceInstance deploy="false" systemName="" guid="" displayName="" description="" impersonate="true">
+				<Environment name="">
+					<Config name="" value="{BlackPearlDir}\ServiceBroker\CustomServiceBrokers\" keyRequired="true" />
+				</Environment>
+			</ServiceInstance>
+		</ServiceType>		
+	</ServiceTypes>
+</EnvironmentMetaData>

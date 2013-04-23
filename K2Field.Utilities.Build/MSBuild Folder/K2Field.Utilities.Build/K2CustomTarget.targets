@@ -1,0 +1,9 @@
+ 
+<!--Should be in the C:\Program Files\MSBuild folder-->
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+      <K2TasksLib>K2Field.Utilities.Build.dll</K2TasksLib>
+    </PropertyGroup>
+    <UsingTask AssemblyFile="$(K2TasksLib)" 
+        TaskName="K2Field.Utilities.Build.K2Deploy" />
+</Project>

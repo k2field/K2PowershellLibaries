@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "K2Field.Utilities.Build", "K2Field.Utilities.Build\K2Field.Utilities.Build.csproj", "{EE29E9AF-E844-4A35-948F-3C86CAB1477F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "K2Field.Utilities.ServiceObjectBuilder", "K2Field.Utilities.ServiceObjectBuilder\K2Field.Utilities.ServiceObjectBuilder.csproj", "{D2A325BF-3227-4415-85AF-05EA29E85539}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EE29E9AF-E844-4A35-948F-3C86CAB1477F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE29E9AF-E844-4A35-948F-3C86CAB1477F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE29E9AF-E844-4A35-948F-3C86CAB1477F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE29E9AF-E844-4A35-948F-3C86CAB1477F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2A325BF-3227-4415-85AF-05EA29E85539}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2A325BF-3227-4415-85AF-05EA29E85539}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2A325BF-3227-4415-85AF-05EA29E85539}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2A325BF-3227-4415-85AF-05EA29E85539}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

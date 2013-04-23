@@ -1,0 +1,45 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <UsingTask TaskName="SourceCode.Workflow.Compiler.PrepareDesignTokens" AssemblyName="SourceCode.Workflow.Tasks, Version=4.6032.1.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d" />
+  <UsingTask TaskName="SourceCode.Workflow.Compiler.RegisterWizardInConfig" AssemblyName="SourceCode.Workflow.Tasks, Version=4.6032.1.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d" />
+
+  <PropertyGroup Condition="$(WinFXWowPath)!=''">
+    <CoreCompileDependsOn>$(CoreCompileDependsOn);RegisterWizards</CoreCompileDependsOn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="$(WinFXWowPath)==''">
+    <CoreCompileDependsOn>$(CoreCompileDependsOn);PrepareDesignTemplates</CoreCompileDependsOn>
+  </PropertyGroup>
+
+  <!--  *****************************************************************************  -->
+  <!--  ***          K2 BlackPearl Wizard SDK Properties                                  **  -->
+  <!--  *****************************************************************************  -->
+
+  <!--<PropertyGroup Condition="$(WinFXWowPath)!=''">
+  </PropertyGroup>-->
+  
+  <Target Name="PrepareDesignTemplates">
+    <PrepareDesignTokens
+             ProjectDirectory="$(MSBuildProjectDirectory)" 
+             RootNamespace="$(RootNamespace)" 
+             Language="$(Language)"
+             ProjectFileName="$(MSBuildProjectFile)"
+             TokenFiles="@(None)"
+             EventClassName="$(EventClassName)"
+             EventItemClassName="$(EventItemClassName)"
+             >
+    </PrepareDesignTokens>
+  </Target>
+
+  <Target Name="RegisterWizards">
+    <RegisterWizardInConfig
+             ProjectDirectory="$(MSBuildProjectDirectory)" 
+             RootNamespace="$(RootNamespace)" 
+             Language="$(Language)"
+             ProjectFileName="$(MSBuildProjectFile)"
+             OutputAssembly="$(MSBuildProjectName).dll"
+             ObjectWizardName="$(ObjectWizardName)"
+             PropertyWizardName="$(PropertyWizardName)"
+             >
+    </RegisterWizardInConfig>
+  </Target>
+</Project>
