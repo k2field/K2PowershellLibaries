@@ -6,6 +6,8 @@ This gives you a way to include K2 blackpearl workflows, smartObjects and Servic
 
 There are helper scripts available, but you will need to manually edit them to change to your development path.
 
+See my [FAQ](/FAQ.txt) page for details.
+
 ===========
 ===========
 SCRIPTS

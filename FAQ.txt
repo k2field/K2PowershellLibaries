@@ -1,0 +1,88 @@
+==================================================================================================
+What is it?
+==================================================================================================
+It is a generic set of PowerShell modules that run on and interact with the K2 Server. It currently uses some C#.net msbuild projects. A few things that used to be done with the K2workspace or SmartObject tester can now be scripted.
+
+==================================================================================================
+What is its main use?
+==================================================================================================
+
+To Deploy Service Brokers (Service Types, Service Instances) and default SmartObjects (with deterministic GUIDs) to one or more Environments.
+
+==================================================================================================
+How do I use it to deploy Service brokers?
+==================================================================================================
+
+•	Download it from github
+•	Build the C#.net msbuild projects (K2Field.Utilities.Deploy.sln).
+•	Build the sample (K2Field.ServiceBrokers.sln) or copy your own assemblies to the Deployment Directory.
+•	Configure the XML with Environment and Service (See below).
+•	As a K2 Administrator on a K2 server. If load balanced you will need to copy the assemblies to all the other nodes manually. Run the following commands:
+•	Set-ExecutionPolicy -ExecutionPolicy Unrestricted
+•	CD <PATH TO DIRECTORY>
+•	Import-Module .\scripts\GenericModule.psm1
+•	Import-Module .\scripts\K2Module.psm1
+•	Publish-K2ServiceBrokers -RestartK2Server $true -Environment Development -RootFilePath .\Deployment -ManifestFileName EnvironmentMetaDataWorklistBroker.xml -prompt $true -verbose ##-debug
+
+==================================================================================================
+How do I configure the XML?
+==================================================================================================
+
+In the Deployment Directory find 2 examples:
+•	EnvironmentMetaDataTemplate.xml – Blank values
+•	EnvironmentMetaDataWorklistBroker.xml –Working example
+
+These will give you some nice examples to use for your own K2 service brokers. If using for the first time configure a service instance manually using the SmartObject Tester and/or ServiceBroker.exe and just copy the values in.
+
+
+==================================================================================================
+What does it technically do when registering service brokers?
+==================================================================================================
+
+1)	It copies the C#.net msbuild projects (K2Field.Utilities.Deploy.sln) assemblies and msbuild files to subdirectories under the windows msbuild directory
+2)	It copies the configured service broker assemblies over to a custom directory under the K2 Service broker directory (default option is to delete everything in that directory first so beware)
+3)	It mimics the behaviour of the SmartObject tester in Registering/refreshin Service Types and Service Instances
+4)	It mimics the behaviour of the SmO Tester right click a service instance – Create SmartObjects
+a.	It looks for existing SmartObjects first and deletes them! Beware!
+b.	It is better than the SmO tester as it does NOT use random GUIDs. It takes the service object name and MD5 hashes it to a deterministic GUID so that the same service object name will result in exactly the same GUID. Thus it is safe to develop artefacts on them without having to use the synchronisation tools.
+
+
+==================================================================================================
+What other options are there when publishing service brokers?
+==================================================================================================
+
+Quite a lot. Try:
+•	get-help Publish-K2ServiceBrokers
+
+==================================================================================================
+What else can it do?
+==================================================================================================
+
+A growing list of things
+Try these in PowerShell to get more information
+•	Get-Command -Module K2Module
+•	get-help Set-K2ServerPermissions
+
+==================================================================================================
+It does not work on my machine. Did you test this at all?
+==================================================================================================
+
+Quite extensively with different servers architectures, environments etc. This version is now in use at a major UK Goverment agency. Previous versions have been used elsewhere. The Code is entirely open source, but if you are stuck please email me githubquestions@championsystems.info. I also accept pull requests (especially unit tests!).
+
+==================================================================================================
+No k2underground projects were harmed in the making of these PowerShell scripts!
+==================================================================================================
+
+Special thanks go to the authors of the following K2undergorund projects
+http://www.k2underground.com/groups/msbuild_tasks_to_handle_deployment_of_custom_service_brokers_and_services_instances/default.aspx
+http://www.k2underground.com/groups/k2_build_and_deploy_msbuild_tasks/default.aspx
+http://www.k2underground.com/groups/worklist_service_broker/default.aspx
+
+I have made several undocumented alterations to them. I am so sorry for my awful code hacks! 
+
+
+==================================================================================================
+Why not use the P&D tool?
+==================================================================================================
+
+It currently cannot be automated and does not work pre 4.6.x?
