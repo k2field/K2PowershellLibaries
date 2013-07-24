@@ -6,15 +6,15 @@
       <K2HostPort>5555</K2HostPort>
     </IsoDev>
     <SharedDev>
-      <K2Host>k2server.dev.k2.atlas.tltinternal.com</K2Host>
+      <K2Host>k2server.dev.k2.denallix.com</K2Host>
       <K2HostPort>5555</K2HostPort>
     </SharedDev>
     <Test>
-      <K2Host>k2server.test.k2.atlas.tltinternal.com</K2Host>
+      <K2Host>k2server.test.k2.denallix.com</K2Host>
       <K2HostPort>5555</K2HostPort>
     </Test>
     <Live>
-      <K2Host>k2server.k2.atlas.tltinternal.com</K2Host>
+      <K2Host>k2server.k2.denallix.com</K2Host>
       <K2HostPort>5555</K2HostPort>
     </Live>
   </Environments>
