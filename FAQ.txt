@@ -4,6 +4,11 @@ What is it?
 It is a generic set of PowerShell modules that run on and interact with the K2 Server. It currently uses some C#.net msbuild projects. A few things that used to be done with the K2workspace or SmartObject tester can now be scripted.
 
 ==================================================================================================
+Where is it?
+==================================================================================================
+https://github.com/k2workflow/K2PowershellLibaries/
+
+==================================================================================================
 What is its main use?
 ==================================================================================================
 
@@ -13,24 +18,24 @@ To Deploy Service Brokers (Service Types, Service Instances) and default SmartOb
 How do I use it to deploy Service brokers?
 ==================================================================================================
 
-•	Download it from github
-•	Build the C#.net msbuild projects (K2Field.Utilities.Deploy.sln).
-•	Build the sample (K2Field.ServiceBrokers.sln) or copy your own assemblies to the Deployment Directory.
-•	Configure the XML with Environment and Service (See below).
-•	As a K2 Administrator on a K2 server. If load balanced you will need to copy the assemblies to all the other nodes manually. Run the following commands:
-•	Set-ExecutionPolicy -ExecutionPolicy Unrestricted
-•	CD <PATH TO DIRECTORY>
-•	Import-Module .\scripts\GenericModule.psm1
-•	Import-Module .\scripts\K2Module.psm1
-•	Publish-K2ServiceBrokers -RestartK2Server $true -Environment Development -RootFilePath .\Deployment -ManifestFileName EnvironmentMetaDataWorklistBroker.xml -prompt $true -verbose ##-debug
+ï¿½	Download it from github
+ï¿½	Build the C#.net msbuild projects (K2Field.Utilities.Deploy.sln).
+ï¿½	Build the sample (K2Field.ServiceBrokers.sln) or copy your own assemblies to the Deployment Directory.
+ï¿½	Configure the XML with Environment and Service (See below).
+ï¿½	As a K2 Administrator on a K2 server. If load balanced you will need to copy the assemblies to all the other nodes manually. Run the following commands:
+ï¿½	Set-ExecutionPolicy -ExecutionPolicy Unrestricted
+ï¿½	CD <PATH TO DIRECTORY>
+ï¿½	Import-Module .\scripts\GenericModule.psm1
+ï¿½	Import-Module .\scripts\K2Module.psm1
+ï¿½	Publish-K2ServiceBrokers -RestartK2Server $true -Environment Development -RootFilePath .\Deployment -ManifestFileName EnvironmentMetaDataWorklistBroker.xml -prompt $true -verbose ##-debug
 
 ==================================================================================================
 How do I configure the XML?
 ==================================================================================================
 
 In the Deployment Directory find 2 examples:
-•	EnvironmentMetaDataTemplate.xml – Blank values
-•	EnvironmentMetaDataWorklistBroker.xml –Working example
+ï¿½	EnvironmentMetaDataTemplate.xml ï¿½ Blank values
+ï¿½	EnvironmentMetaDataWorklistBroker.xml ï¿½Working example
 
 These will give you some nice examples to use for your own K2 service brokers. If using for the first time configure a service instance manually using the SmartObject Tester and/or ServiceBroker.exe and just copy the values in.
 
@@ -42,7 +47,7 @@ What does it technically do when registering service brokers?
 1)	It copies the C#.net msbuild projects (K2Field.Utilities.Deploy.sln) assemblies and msbuild files to subdirectories under the windows msbuild directory
 2)	It copies the configured service broker assemblies over to a custom directory under the K2 Service broker directory (default option is to delete everything in that directory first so beware)
 3)	It mimics the behaviour of the SmartObject tester in Registering/refreshin Service Types and Service Instances
-4)	It mimics the behaviour of the SmO Tester right click a service instance – Create SmartObjects
+4)	It mimics the behaviour of the SmO Tester right click a service instance ï¿½ Create SmartObjects
 a.	It looks for existing SmartObjects first and deletes them! Beware!
 b.	It is better than the SmO tester as it does NOT use random GUIDs. It takes the service object name and MD5 hashes it to a deterministic GUID so that the same service object name will result in exactly the same GUID. Thus it is safe to develop artefacts on them without having to use the synchronisation tools.
 
@@ -52,16 +57,23 @@ What other options are there when publishing service brokers?
 ==================================================================================================
 
 Quite a lot. Try:
-•	get-help Publish-K2ServiceBrokers
+ï¿½	get-help Publish-K2ServiceBrokers
 
 ==================================================================================================
 What else can it do?
 ==================================================================================================
 
-A growing list of things
+A growing list of things:
+
+Add/Remove lots of permission (K2 server rights, SmartObject rights)
+Add/Remove Environment Libraries (import/export to xml)
+Add/Remove Availability Zones (working hours)  (import/export to xml)
+
+
 Try these in PowerShell to get more information
-•	Get-Command -Module K2Module
-•	get-help Set-K2ServerPermissions
+ï¿½	Get-Command -Module K2Module K
+ï¿½	Get-Command -Module K2AvailabilityHoursModule
+ï¿½	get-help Set-K2ServerPermissions
 
 ==================================================================================================
 It does not work on my machine. Did you test this at all?
