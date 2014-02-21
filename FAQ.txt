@@ -97,4 +97,4 @@ I have made several undocumented alterations to them. I am so sorry for my awful
 Why not use the P&D tool?
 ==================================================================================================
 
-It currently cannot be automated and does not work pre 4.6.x?
+It does not work pre 4.6.x and does not support Service Types. Going forward using the P&D tool is the prefered approach now that it has powershell support.
